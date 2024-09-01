@@ -1,3 +1,4 @@
+import { globSync } from 'glob';
 import { builtinModules } from 'module';
 import nodeResolve from '@rollup/plugin-node-resolve'
 import commonJS from '@rollup/plugin-commonjs';
@@ -5,6 +6,8 @@ import typescript from '@rollup/plugin-typescript';
 import copy from '@rollup-extras/plugin-copy';
 import del from 'rollup-plugin-delete';
 import run from '@rollup/plugin-run';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const getExternals = (matches = []) => {
     matches = Array.isArray(matches) ? matches : [matches]
@@ -29,7 +32,10 @@ const plugins = [
 
 export default [
     {
-        external: getExternals('src\\/utils\\/index'),
+        external: getExternals([
+            'src\\/utils\\/index',
+            'src\\/samples\\/modules\/.+'
+        ]),
         input: 'src/utils/index.ts',
         output: [
             {
@@ -49,13 +55,14 @@ export default [
         ],
         plugins: [
             del({
-                hook: "buildStart",
+                hook: "options",
                 targets: "./tests",
                 runOnce: true
             }),
             ...plugins,
             copy({
                 src: 'src/samples/**',
+                exclude: 'src/samples/modules/**',
                 dest: 'samples',
                 copyOnce: false,
                 verbose: true
@@ -63,7 +70,10 @@ export default [
         ]
     },
     {
-        external: getExternals('rollup-test-builds'),
+        external: getExternals([
+            'rollup-test-builds',
+            'src\\/samples\\/modules\/.+'
+        ]),
         input: 'src/rollup-test-builds.ts',
         output: [
             {
@@ -78,6 +88,7 @@ export default [
             ...plugins,
             copy({
                 src: 'src/samples/**',
+                exclude: 'src/samples/modules/**',
                 dest: 'samples',
                 copyOnce: false,
                 verbose: true
@@ -114,6 +125,7 @@ export default [
     {
         external: getExternals([
             'dom-test',
+            'src\\/samples\\/js\\/.+',
             'src\\/utils\\/index',
         ]),
         input: 'src/dom-test.ts',
