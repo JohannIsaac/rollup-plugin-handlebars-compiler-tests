@@ -9,7 +9,7 @@ var path = require('path');
 var url = require('url');
 
 var _documentCurrentScript = typeof document !== 'undefined' ? document.currentScript : null;
-var filepath = url.fileURLToPath((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.src || new URL('utils/index.test.js', document.baseURI).href)));
+var filepath = url.fileURLToPath((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.src || new URL('utils/index-cjs.test.js', document.baseURI).href)));
 var __dirname$1 = path.dirname(filepath);
 var RollupTestBuilds = {
     'simple': {

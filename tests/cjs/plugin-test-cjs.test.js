@@ -1,7 +1,7 @@
 'use strict';
 
 var tslib = require('tslib');
-var index = require('./utils/index.test.js');
+var index = require('./utils/index-cjs.test.js');
 
 describe('Handlebars Plugin', function () {
     it('should bundle simple handlebars templates', function () { return tslib.__awaiter(void 0, void 0, void 0, function () {
