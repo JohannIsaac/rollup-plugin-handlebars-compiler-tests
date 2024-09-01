@@ -97,14 +97,14 @@ export default [
                 format: 'es',
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                entryFileNames: '[name].test.js',
+                entryFileNames: '[name]-es.test.js',
             },
             {
                 dir: 'tests/cjs',
                 format: 'cjs',
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                entryFileNames: '[name].test.js',
+                entryFileNames: '[name]-cjs.test.js',
             },
         ],
         plugins: [

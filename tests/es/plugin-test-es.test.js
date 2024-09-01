@@ -1,5 +1,5 @@
 import { __awaiter, __generator } from 'tslib';
-import { generateOutputs, generateBundle, RollupTestBuilds } from './utils/index.test.js';
+import { generateOutputs, generateBundle, RollupTestBuilds } from './utils/index-es.test.js';
 
 describe('Handlebars Plugin', function () {
     it('should bundle simple handlebars templates', function () { return __awaiter(void 0, void 0, void 0, function () {
