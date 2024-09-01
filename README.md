@@ -26,7 +26,7 @@ Rollup unit tests for testing ``rollup-plugin-handlebars-compiler`` es and cjs m
     ```
     - Use local `rollup-plugin-handlebars-compiler` package
     ```
-    npm link rollup-plugin-handlebars-compiler-tests
+    npm link rollup-plugin-handlebars-compiler
     ```
 
 ## Usage
