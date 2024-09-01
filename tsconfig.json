@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "module": "Preserve",
+    "declaration": false,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ES2021.String"
+    ],
+  },
+}
