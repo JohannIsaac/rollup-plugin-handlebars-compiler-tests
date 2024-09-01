@@ -1,4 +1,4 @@
-import Template from '../templates/simple.hbs'
+import Template from '../handlebars/simple.hbs'
 import { TemplateData } from '../data/template-data.js'
 
 export default function load() {
