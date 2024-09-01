@@ -11,8 +11,6 @@ var url = require('url');
 var _documentCurrentScript = typeof document !== 'undefined' ? document.currentScript : null;
 var filepath = url.fileURLToPath((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.src || new URL('utils/index.cjs', document.baseURI).href)));
 var __dirname$1 = path.dirname(filepath);
-console.log(filepath);
-console.log(__dirname$1);
 var RollupTestBuilds = {
     'simple': {
         inputOptions: {
@@ -66,11 +64,11 @@ function generateOutputs(bundle, buildData) {
                     outputs = [];
                     _c.label = 1;
                 case 1:
-                    _c.trys.push([1, 6, 7, 8]);
+                    _c.trys.push([1, 7, 8, 9]);
                     outputOptionsList_1 = tslib.__values(outputOptionsList), outputOptionsList_1_1 = outputOptionsList_1.next();
                     _c.label = 2;
                 case 2:
-                    if (!!outputOptionsList_1_1.done) return [3 /*break*/, 5];
+                    if (!!outputOptionsList_1_1.done) return [3 /*break*/, 6];
                     outputOptions = outputOptionsList_1_1.value;
                     return [4 /*yield*/, bundle.generate(outputOptions)];
                 case 3:
@@ -89,23 +87,25 @@ function generateOutputs(bundle, buildData) {
                         }
                         finally { if (e_3) throw e_3.error; }
                     }
-                    writeBundle(bundle, buildData, outputOptions);
-                    _c.label = 4;
+                    return [4 /*yield*/, writeBundle(bundle, buildData, outputOptions)];
                 case 4:
+                    _c.sent();
+                    _c.label = 5;
+                case 5:
                     outputOptionsList_1_1 = outputOptionsList_1.next();
                     return [3 /*break*/, 2];
-                case 5: return [3 /*break*/, 8];
-                case 6:
+                case 6: return [3 /*break*/, 9];
+                case 7:
                     e_2_1 = _c.sent();
                     e_2 = { error: e_2_1 };
-                    return [3 /*break*/, 8];
-                case 7:
+                    return [3 /*break*/, 9];
+                case 8:
                     try {
                         if (outputOptionsList_1_1 && !outputOptionsList_1_1.done && (_a = outputOptionsList_1.return)) _a.call(outputOptionsList_1);
                     }
                     finally { if (e_2) throw e_2.error; }
                     return [7 /*endfinally*/];
-                case 8:
+                case 9:
                     if (bundle) {
                         bundle.close();
                     }

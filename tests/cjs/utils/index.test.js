@@ -1,17 +1,20 @@
-import { __awaiter, __generator, __values } from 'tslib';
-import commonjs from '@rollup/plugin-commonjs';
-import nodeResolve from '@rollup/plugin-node-resolve';
-import handlebars from 'rollup-plugin-handlebars-compiler';
-import { rollup } from 'rollup';
-import path from 'path';
-import { fileURLToPath } from 'url';
+'use strict';
 
-var filepath = fileURLToPath(import.meta.url);
-var __dirname = path.dirname(filepath);
+var tslib = require('tslib');
+var commonjs = require('@rollup/plugin-commonjs');
+var nodeResolve = require('@rollup/plugin-node-resolve');
+var handlebars = require('rollup-plugin-handlebars-compiler');
+var rollup = require('rollup');
+var path = require('path');
+var url = require('url');
+
+var _documentCurrentScript = typeof document !== 'undefined' ? document.currentScript : null;
+var filepath = url.fileURLToPath((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.src || new URL('utils/index.test.js', document.baseURI).href)));
+var __dirname$1 = path.dirname(filepath);
 var RollupTestBuilds = {
     'simple': {
         inputOptions: {
-            input: path.join(__dirname, '../samples/js/simple.js'),
+            input: path.join(__dirname$1, '../samples/js/simple.js'),
             plugins: [
                 nodeResolve(),
                 commonjs(),
@@ -27,9 +30,9 @@ var RollupTestBuilds = {
     },
 };
 function generateBundle(buildData) {
-    return __awaiter(this, void 0, void 0, function () {
+    return tslib.__awaiter(this, void 0, void 0, function () {
         var inputOptions, bundle, error, e_1;
-        return __generator(this, function (_a) {
+        return tslib.__generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     inputOptions = buildData.inputOptions;
@@ -37,7 +40,7 @@ function generateBundle(buildData) {
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, rollup(inputOptions)];
+                    return [4 /*yield*/, rollup.rollup(inputOptions)];
                 case 2:
                     bundle = _a.sent();
                     return [3 /*break*/, 4];
@@ -51,10 +54,10 @@ function generateBundle(buildData) {
     });
 }
 function generateOutputs(bundle, buildData) {
-    return __awaiter(this, void 0, void 0, function () {
+    return tslib.__awaiter(this, void 0, void 0, function () {
         var outputOptionsList, outputs, outputOptionsList_1, outputOptionsList_1_1, outputOptions, output, output_1, output_1_1, chunkOrAsset, code, e_2_1;
         var e_2, _a, e_3, _b;
-        return __generator(this, function (_c) {
+        return tslib.__generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
                     outputOptionsList = buildData.outputOptionsList;
@@ -62,7 +65,7 @@ function generateOutputs(bundle, buildData) {
                     _c.label = 1;
                 case 1:
                     _c.trys.push([1, 7, 8, 9]);
-                    outputOptionsList_1 = __values(outputOptionsList), outputOptionsList_1_1 = outputOptionsList_1.next();
+                    outputOptionsList_1 = tslib.__values(outputOptionsList), outputOptionsList_1_1 = outputOptionsList_1.next();
                     _c.label = 2;
                 case 2:
                     if (!!outputOptionsList_1_1.done) return [3 /*break*/, 6];
@@ -71,7 +74,7 @@ function generateOutputs(bundle, buildData) {
                 case 3:
                     output = (_c.sent()).output;
                     try {
-                        for (output_1 = (e_3 = void 0, __values(output)), output_1_1 = output_1.next(); !output_1_1.done; output_1_1 = output_1.next()) {
+                        for (output_1 = (e_3 = void 0, tslib.__values(output)), output_1_1 = output_1.next(); !output_1_1.done; output_1_1 = output_1.next()) {
                             chunkOrAsset = output_1_1.value;
                             code = chunkOrAsset.code;
                             outputs.push(code);
@@ -112,9 +115,9 @@ function generateOutputs(bundle, buildData) {
     });
 }
 function writeBundle(bundle, buildData, outputOptions) {
-    return __awaiter(this, void 0, void 0, function () {
+    return tslib.__awaiter(this, void 0, void 0, function () {
         var inputName, basename, outputFile;
-        return __generator(this, function (_a) {
+        return tslib.__generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     inputName = buildData.inputOptions.input;
@@ -138,4 +141,7 @@ function writeBundle(bundle, buildData, outputOptions) {
     });
 }
 
-export { RollupTestBuilds, generateBundle, generateOutputs, writeBundle };
+exports.RollupTestBuilds = RollupTestBuilds;
+exports.generateBundle = generateBundle;
+exports.generateOutputs = generateOutputs;
+exports.writeBundle = writeBundle;

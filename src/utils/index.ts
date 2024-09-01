@@ -21,10 +21,6 @@ interface Builds {
 }
 
 
-console.log(filepath)
-console.log(__dirname)
-
-
 
 export const RollupTestBuilds: Builds = {
     'simple': {
@@ -71,8 +67,8 @@ export async function generateOutputs(bundle: RollupBuild, buildData: Build) {
             const { code } = chunkOrAsset as OutputChunk
             outputs.push(code)
 		}
-        
-        writeBundle(bundle, buildData, outputOptions)
+
+        await writeBundle(bundle, buildData, outputOptions)
 	}
     if (bundle) {
         bundle.close()

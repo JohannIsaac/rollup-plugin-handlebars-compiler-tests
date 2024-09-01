@@ -1528,7 +1528,7 @@ const TemplateData = {
 };
 
 function load() {
-    Template(TemplateData);
+    return Template(TemplateData)
 }
 
 export { load as default };

@@ -7,7 +7,12 @@
     "url": "git+https://github.com/JohannIsaac/rollup-plugin-handlebars-compiler-tests.git"
   },
   "scripts": {
-    "build": "rollup --config rollup.config.js"
+    "test": "npm run test-cjs && npm run test-es && npm run test-browser",
+    "test-cjs": "jest --config jest-cjs.config.cjs",
+    "test-es": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --config jest-es.config.js",
+    "test-browser": "cross-env NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --config jest-browser.config.js",
+    "build": "rollup --config rollup.config.js",
+    "dev": "rollup --config rollup.config.js --watch"
   },
   "author": "Johann Isaac",
   "license": "MIT",
@@ -23,6 +28,9 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-run": "^3.1.0",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@types/jest": "^29.5.12",
+    "babel-jest": "^29.7.0",
+    "cross-env": "^7.0.3",
     "jest": "^29.7.0",
     "rollup": "^4.21.2",
     "rollup-plugin-delete": "^2.0.0",
