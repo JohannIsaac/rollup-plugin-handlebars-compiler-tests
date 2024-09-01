@@ -1,7 +1,7 @@
 # rollup-plugin-handlebars-compiler-tests
 Rollup unit tests for testing ``rollup-plugin-handlebars-compiler`` es and cjs modules.
 
-# Installation
+## Installation
 1. Install [rollup-plugin-handlebars-compiler](https://github.com/JohannIsaac/rollup-plugin-handlebars-compiler) locally
     - Clone repo
     ```
